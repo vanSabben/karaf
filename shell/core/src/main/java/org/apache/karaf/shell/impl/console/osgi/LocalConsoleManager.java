@@ -18,7 +18,6 @@
  */
 package org.apache.karaf.shell.impl.console.osgi;
 
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.security.PrivilegedAction;
@@ -33,7 +32,6 @@ import org.apache.karaf.shell.api.console.SessionFactory;
 import org.apache.karaf.shell.impl.console.JLineTerminal;
 import org.apache.karaf.shell.support.ShellUtil;
 import org.apache.karaf.util.jaas.JaasHelper;
-import org.apache.sshd.common.util.io.NoCloseOutputStream;
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 import org.osgi.framework.BundleContext;
@@ -70,16 +68,10 @@ public class LocalConsoleManager {
         final Subject subject = createLocalKarafSubject();    
         this.session = JaasHelper.doAs(subject, (PrivilegedAction<Session>) () -> {
             String encoding = getEncoding();
-            PrintStream pout = new PrintStream(terminal.output()) {
-                @Override
-                public void close() {
-                    // do nothing
-                }
-            };
             session = sessionFactory.create(
                                   terminal.input(),
-                                  pout,
-                                  pout,
+                                  new PrintStream(terminal.output()),
+                                  new PrintStream(terminal.output()),
                                   new JLineTerminal(terminal),
                                   encoding,
                                   LocalConsoleManager.this::close);
