@@ -151,9 +151,9 @@
         <awaitility.version>3.1.2</awaitility.version>
         <cglib.bundle.version>3.2.4_1</cglib.bundle.version>
         <cglib2.version>2.2.0</cglib2.version>
-        
+
         <jna.version>4.5.1</jna.version>
-        <jaxb.version>2.2.11</jaxb.version> 
+        <jaxb.version>2.2.11</jaxb.version>
         <commons-beanutils.version>1.9.2</commons-beanutils.version>
         <commons-codec.version>1.10</commons-codec.version>
         <commons-compress.version>1.17</commons-compress.version>
@@ -1614,7 +1614,7 @@
                 <artifactId>org.apache.aries.subsystem.api</artifactId>
                 <version>${aries.subsystem.api.version}</version>
             </dependency>
-     
+
             <dependency>
                 <groupId>org.apache.aries.subsystem</groupId>
                 <artifactId>org.apache.aries.subsystem.core</artifactId>
@@ -2367,7 +2367,7 @@
             <properties>
                 <surefire.argLine>
                                   --add-opens java.base/java.security=ALL-UNNAMED
-                                  --add-opens java.base/java.net=ALL-UNNAMED 
+                                  --add-opens java.base/java.net=ALL-UNNAMED
                                   --add-opens java.base/java.lang=ALL-UNNAMED
                                   --add-opens java.base/java.util=ALL-UNNAMED
                                   --add-opens java.naming/javax.naming.spi=ALL-UNNAMED
