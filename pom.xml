@@ -2433,4 +2433,17 @@
                 </dependencies-->
         </profile>
     </profiles>
+
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>Internal Repository</name>
+      <url>${repository.internal.url}</url>
+    </repository>
+    <snapshotRepository>
+      <id>internal.repo</id>
+      <name>Internal Repository</name>
+      <url>${repository.internal.snapshot.url}</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
