@@ -587,10 +587,12 @@ public class VerifyMojo extends MojoSupport {
                         try (InputStream is = provider.open()) {
                             Features featuresModel = JaxbUtil.unmarshal(provider.getUrl(), is, false);
                             synchronized (loaded) {
-                                loaded.put(provider.getUrl(), featuresModel);
-                                for (String innerRepository : featuresModel.getRepository()) {
-                                    if (!processor.isRepositoryBlacklisted(innerRepository)) {
-                                        downloader.download(innerRepository, this);
+							    if (!loaded.containsKey(provider.getUrl())) {
+                                    loaded.put(provider.getUrl(), featuresModel);
+                                    for (String innerRepository : featuresModel.getRepository()) {
+                                        if (!processor.isRepositoryBlacklisted(innerRepository)) {
+                                            downloader.download(innerRepository, this);
+                                        }
                                     }
                                 }
                             }
