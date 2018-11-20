@@ -37,15 +37,15 @@ echo   remove            Remove the %APP_NAME% Windows service
 goto end
 
 :doRun
-"%APP_BASE%\bin\%APP_NAME%-wrapper.exe" -c "%APP_ETC%\%APP_NAME%-wrapper.conf"
+"%APP_BASE%\bin\%APP_NAME%-wrapper.exe" -c "%APP_ETC%\%APP_NAME%-wrapper.conf" %2 %3 %4 %5 %6 %7 %8 %9
 goto end
 
 :doInstall
-"%APP_BASE%\bin\%APP_NAME%-wrapper.exe" -i "%APP_ETC%\%APP_NAME%-wrapper.conf"
+"%APP_BASE%\bin\%APP_NAME%-wrapper.exe" -i "%APP_ETC%\%APP_NAME%-wrapper.conf" %2 %3 %4 %5 %6 %7 %8 %9
 goto end
 
 :doRemove
-"%APP_BASE%\bin\%APP_NAME%-wrapper.exe" -r "%APP_ETC%\%APP_NAME%-wrapper.conf"
+"%APP_BASE%\bin\%APP_NAME%-wrapper.exe" -r "%APP_ETC%\%APP_NAME%-wrapper.conf" %2 %3 %4 %5 %6 %7 %8 %9
 goto end
 
 :end
